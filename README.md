@@ -94,3 +94,12 @@ Example:
 ```JSON
 
 ```
+
+### Try Live Demo For each pattern
+
+JS Example:
+
+```js
+let live_code = `https://onlinegdb.com/${onlinegdb_id}`
+let live_code_filter = `https://onlinegdb.com/${onlinegdb_id_input_filter}`
+```
