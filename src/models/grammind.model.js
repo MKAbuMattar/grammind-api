@@ -48,6 +48,16 @@ const grammindSchema = new mongoose.Schema({
     require: true,
   },
 
+  example_user_input: {
+    type: Number,
+    default: 5,
+  },
+
+  example_output: {
+    type: String,
+    require: true,
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,
