@@ -6,7 +6,7 @@ public class Main {
         int num = Integer.MIN_VALUE;
         boolean checker;
         String string;
-
+        int k = 1;
         System.out.print("Enter the number of rows and columns for the square: ");
 
         checker = createScanner.hasNextInt();
@@ -30,7 +30,8 @@ public class Main {
 
         for (int i = num; i >= 1; i--) {
             for (int j = num; j >= 1; j--) {
-                System.out.print(j + " ");
+                System.out.print(k + " ");
+                k += 2;
             }
             System.out.print("\n");
         }

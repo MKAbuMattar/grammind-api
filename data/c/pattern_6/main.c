@@ -3,6 +3,7 @@
 int main(void)
 {
     int num;
+    int k = 1;
     printf("Enter the number of rows and columns for the square: ");
 
     while (!(scanf("%d", &num) == 1) || num <= 0)
@@ -15,7 +16,7 @@ int main(void)
     {
         for (int j = num; j >= 1; j--)
         {
-            printf("%d ", j);
+            printf("%d ", k++);
         }
         printf("\n");
     }
