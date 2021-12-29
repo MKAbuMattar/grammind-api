@@ -1,0 +1,8 @@
+{
+  "pattern": "square",
+  "order": "pattern_1",
+  "type": "symbol pattern",
+  "programing_language": "c",
+  "code": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    printf(\"Enter the number of rows and columns for the square: \");\n\n    while (!(scanf(\"%d\", &num) == 1) || num <= 0)\n    {\n        num = getchar();\n        printf(\"Must the number be positive, re-enter the number of rows and columns for the square: \");\n    }\n\n    for (int i = 1; i <= num; i++)\n    {\n        for (int j = 1; j <= num; j++)\n        {\n            printf(\"* \");\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
+  "onlinegdb_id": "0px7fWMv4"
+}

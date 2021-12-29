@@ -1,0 +1,8 @@
+{
+  "pattern": "square",
+  "order": "pattern_1",
+  "type": "symbol pattern",
+  "programing_language": "python",
+  "code": "def checkInput(message):\n    while True:\n        try:\n            userInput = int(input(message))\n        except ValueError:\n            message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n            continue\n        else:\n            if userInput <= 0:\n                message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n                continue\n            else:\n                return userInput\n                break\n\n#MAIN PROGRAM STARTS HERE:\nnum = checkInput('Enter the number of rows and columns for the square: ')\n\nfor x in range(0, num):\n    for y in range(0, num):\n        print ('* ', end='')\n    print()",
+  "onlinegdb_id": "twMTgkzYH"
+}
