@@ -4,6 +4,7 @@ using namespace std;
 int main(void)
 {
     int num;
+    int k = 1;
     cout << "Enter the number of rows and columns for the square: ";
     cin >> num;
 
@@ -19,7 +20,8 @@ int main(void)
     {
         for (int j = num; j >= 1; j--)
         {
-            cout << j << " ";
+            cout << k << " ";
+            k += 2;
         }
         cout << endl;
     }
