@@ -457,7 +457,9 @@ Example:
 GET https://grammind.herokuapp.com/api/v1/language/python
 ```
 
-```json
+Example:
+
+```JSON
 {
   "success": true,
   "resultCount": 12,
@@ -507,7 +509,9 @@ GET https://grammind.herokuapp.com/api/v1/language/python
 GET https://grammind.herokuapp.com/api/v1/language/python/type/symbol pattern
 ```
 
-```json
+Example:
+
+```JSON
 {
   "success": true,
   "resultCount": 1,
@@ -535,10 +539,12 @@ GET https://grammind.herokuapp.com/api/v1/language/python/type/symbol pattern
 ### Get pattern by language and pattern no.
 
 ```http
-GET http://localhost:3030/api/v1/language/python/pattern_no/pattern_4
+GET http://grammind.herokuapp.com/api/v1/language/python/pattern_no/pattern_4
 ```
 
-```json
+Example:
+
+```JSON
 {
   "success": true,
   "resultCount": 1,
