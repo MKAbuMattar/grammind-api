@@ -27,6 +27,8 @@ export const readGrammind = async (req, res, next) => {
             spaces,
           ),
         )
+
+        next()
       }
     })
   } else {
@@ -114,11 +116,11 @@ export const readGrammind = async (req, res, next) => {
             spaces,
           ),
         )
+
+        next()
       }
     })
   }
-
-  next()
 }
 
 export const getBySlugGrammind = async (req, res, next) => {
@@ -149,9 +151,9 @@ export const getBySlugGrammind = async (req, res, next) => {
         spaces,
       ),
     )
-  })
 
-  next()
+    next()
+  })
 }
 
 export const getByLanguageGrammind = async (req, res, next) => {
@@ -182,9 +184,9 @@ export const getByLanguageGrammind = async (req, res, next) => {
         spaces,
       ),
     )
-  })
 
-  next()
+    next()
+  })
 }
 
 export const getByLanguageAndTypeGrammind = async (req, res, next) => {
@@ -218,10 +220,10 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
           spaces,
         ),
       )
+
+      next()
     },
   )
-
-  next()
 }
 
 export const getByLanguageAndNoGrammind = async (req, res, next) => {
@@ -255,8 +257,8 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
           spaces,
         ),
       )
+
+      next()
     },
   )
-
-  next()
 }
