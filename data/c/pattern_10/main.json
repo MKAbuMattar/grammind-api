@@ -1,0 +1,11 @@
+{
+  "pattern": "square",
+  "pattern_no": "pattern_1",
+  "type": "symbol pattern",
+  "programing_language": "c",
+  "code": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    printf(\"Enter the number of rows and columns for the square: \");\n    scanf(\"%d\", &num);\n\n    for (int i = 1; i <= num; i++)\n    {\n        for (int j = 1; j <= num - 2; j++)\n        {\n            printf(\"%d %d \", i, j);\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
+  "code_input_filter": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    printf(\"Enter the number of rows and columns for the square: \");\n\n    while (!(scanf(\"%d\", &num) == 1) || num <= 0)\n    {\n        num = getchar();\n        printf(\"Must the number be positive, re-enter the number of rows and columns for the square: \");\n    }\n\n    for (int i = 1; i <= num; i++)\n    {\n        for (int j = 1; j <= num - 2; j++)\n        {\n            printf(\"%d %d \", i, j);\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
+  "onlinegdb_id": "vITmZArCP",
+  "onlinegdb_id_input_filter": "0mSVhR7CN",
+  "example_output": "1 1 1 2 1 3 \n2 1 2 2 2 3 \n3 1 3 2 3 3 \n4 1 4 2 4 3 \n5 1 5 2 5 3"
+}

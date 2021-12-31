@@ -3,9 +3,9 @@
   "pattern_no": "pattern_2",
   "type": "numeric pattern",
   "programing_language": "csharp",
-  "code": "",
-  "code_input_filter": "",
-  "onlinegdb_id": "",
-  "onlinegdb_id_input_filter": "",
-  "example_output": ""
+  "code": "using System;\nclass Grammind\n{\n    static void Main()\n    {\n        int num;\n        int k = 1;\n        Console.Write(\"Enter the number of rows and columns for the square: \");\n        num = Int32.Parse(Console.ReadLine());\n\n        for (int i = 1; i <= num; i++)\n        {\n            for (int j = 1; j <= num; j++)\n            {\n                Console.Write(k + \" \");\n                k++;\n            }\n            Console.Write(\"\n\");\n        }\n    }\n}",
+  "code_input_filter": "using System;\nclass Grammind\n{\n    static void Main()\n    {\n        int num;\n        int k = 1;\n        string input;\n        Console.Write(\"Enter the number of rows and columns for the square: \");\n        input = Console.ReadLine();\n\n        while (!int.TryParse(input, out num) || num <= 0)\n        {\n            Console.Write(\"Must the number be positive, re-enter the number of rows and columns for the square: \");\n            input = Console.ReadLine();\n        }\n\n        for (int i = 1; i <= num; i++)\n        {\n            for (int j = 1; j <= num; j++)\n            {\n                Console.Write(k + \" \");\n                k++;\n            }\n            Console.Write(\"\n\");\n        }\n    }\n}",
+  "onlinegdb_id": "8Qn7JGFOR",
+  "onlinegdb_id_input_filter": "cIEBix7kv",
+  "example_output": " 1  2  3  4  5 \n 6  7  8  9 10 \n11 12 13 14 15 \n16 17 18 19 20 \n21 22 23 24 25"
 }

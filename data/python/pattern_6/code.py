@@ -2,8 +2,8 @@
 num = int(input('Enter the number of rows and columns for the square: '))
 k = 1
 
-for x in range(num, 0, -1):
-    for y in range(num, 0, -1):
+for x in range(0, num ):
+    for y in range(0, num):
         print ('%d ' % (k), end='')
         k += 1
     print()

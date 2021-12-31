@@ -3,9 +3,9 @@
   "pattern_no": "pattern_2",
   "type": "numeric pattern",
   "programing_language": "java",
-  "code": "",
-  "code_input_filter": "",
-  "onlinegdb_id": "",
-  "onlinegdb_id_input_filter": "",
-  "example_output": ""
+  "code": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner createScanner = new Scanner(System.in);\n        int num;\n        int k = 1;\n        System.out.print(\"Enter the number of rows and columns for the square: \");\n        num = createScanner.nextInt();\n\n        for (int i = 1; i <= num; i++) {\n            for (int j = 1; j <= num; j++) {\n                System.out.print(k + \" \");\n                k++;\n            }\n            System.out.print(\"\n\");\n        }\n    }\n}",
+  "code_input_filter": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner createScanner = new Scanner(System.in);\n        int num = Integer.MIN_VALUE;\n        boolean checker;\n        String string;\n        int k = 1;\n        System.out.print(\"Enter the number of rows and columns for the square: \");\n\n        checker = createScanner.hasNextInt();\n        string = createScanner.next();\n\n        if (checker) {\n            num = Integer.parseInt(string);\n        }\n\n        while (!checker || num <= 0) {\n            System.out.print(\n                    \"Must the number be positive, re-enter the number of rows and columns for the square: \");\n\n            checker = createScanner.hasNextInt();\n            string = createScanner.next();\n\n            if (checker) {\n                num = Integer.parseInt(string);\n            }\n        }\n\n        for (int i = 1; i <= num; i++) {\n            for (int j = 1; j <= num; j++) {\n                System.out.print(k + \" \");\n                k++;\n            }\n            System.out.print(\"\n\");\n        }\n    }\n}",
+  "onlinegdb_id": "dMTs6smEs",
+  "onlinegdb_id_input_filter": "8u7U-ZNUG",
+  "example_output": " 1  2  3  4  5 \n 6  7  8  9 10 \n11 12 13 14 15 \n16 17 18 19 20 \n21 22 23 24 25"
 }
