@@ -1,6 +1,6 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_2",
+  "pattern_no": "pattern_11",
   "type": "numeric pattern",
   "programing_language": "csharp",
   "code": "using System;\nclass Grammind\n{\n    static void Main()\n    {\n        int num;\n        Console.Write(\"Enter the number of rows and columns for the square: \");\n        num = Int32.Parse(Console.ReadLine());\n\n        for (int i = 1; i <= num; i++)\n        {\n            for (int j = 1; j <= num - 2; j++)\n            {\n                Console.Write(j + \" \" + i + \" \");\n            }\n            Console.Write(\"\n\");\n        }\n    }\n}",

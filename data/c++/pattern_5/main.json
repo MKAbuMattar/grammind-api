@@ -1,6 +1,6 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_2",
+  "pattern_no": "pattern_5",
   "type": "numeric pattern",
   "programing_language": "cpp",
   "code": "#include <iostream>\nusing namespace std;\n\nint main(void)\n{\n    int num;\n    cout << \"Enter the number of rows and columns for the square: \";\n    cin >> num;\n\n    for (int i = num; i >= 1; i--)\n    {\n        for (int j = num; j >= 1; j--)\n        {\n            cout << j << \" \";\n        }\n        cout << endl;\n    }\n\n    return 0;\n}",
