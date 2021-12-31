@@ -9,8 +9,10 @@ import {
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   res.redirect('https://github.com/MKAbuMattar/grammind-api')
+
+  next()
 })
 
 const API_URL_VERSION = [`/api/v1`]

@@ -1,6 +1,6 @@
 import grammindModle from '../models/grammind.model'
 
-export const readGrammind = async (req, res) => {
+export const readGrammind = async (req, res, next) => {
   const numOfQueries = Object.keys(req.query).length
 
   if (numOfQueries === 0) {
@@ -117,9 +117,11 @@ export const readGrammind = async (req, res) => {
       }
     })
   }
+
+  next()
 }
 
-export const getBySlugGrammind = async (req, res) => {
+export const getBySlugGrammind = async (req, res, next) => {
   const slug = req.params.slug
 
   grammindModle.find({ slug: slug }, (err, patterns) => {
@@ -148,9 +150,11 @@ export const getBySlugGrammind = async (req, res) => {
       ),
     )
   })
+
+  next()
 }
 
-export const getByLanguageGrammind = async (req, res) => {
+export const getByLanguageGrammind = async (req, res, next) => {
   const language = req.params.language
 
   grammindModle.find({ programing_language: language }, (err, patterns) => {
@@ -179,9 +183,11 @@ export const getByLanguageGrammind = async (req, res) => {
       ),
     )
   })
+
+  next()
 }
 
-export const getByLanguageAndTypeGrammind = async (req, res) => {
+export const getByLanguageAndTypeGrammind = async (req, res, next) => {
   const language = req.params.language
   const type = req.params.type
 
@@ -214,9 +220,11 @@ export const getByLanguageAndTypeGrammind = async (req, res) => {
       )
     },
   )
+
+  next()
 }
 
-export const getByLanguageAndNoGrammind = async (req, res) => {
+export const getByLanguageAndNoGrammind = async (req, res, next) => {
   const language = req.params.language
   const pattern_no = req.params.pattern_no
 
@@ -249,4 +257,6 @@ export const getByLanguageAndNoGrammind = async (req, res) => {
       )
     },
   )
+
+  next()
 }
