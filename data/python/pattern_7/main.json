@@ -1,6 +1,6 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_2",
+  "pattern_no": "pattern_7",
   "type": "numeric pattern",
   "programing_language": "python",
   "code": "#MAIN PROGRAM STARTS HERE:\nnum = int(input('Enter the number of rows and columns for the square: '))\nk = 1\n\nfor x in range(0, num ):\n    for y in range(0, num):\n        print ('%d ' % (k), end='')\n        k += 2\n    print()",

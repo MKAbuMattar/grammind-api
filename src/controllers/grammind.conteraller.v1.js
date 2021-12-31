@@ -10,11 +10,23 @@ export const readGrammind = async (req, res) => {
           errors: err,
         })
       } else {
-        res.status(200).json({
-          success: true,
-          totalCount: data.length,
-          data: data,
-        })
+        let spaces = data.spaces || 2
+
+        if (!res.get('Content-Type')) {
+          res.set('Content-Type', 'application/json')
+        }
+
+        res.status(200).send(
+          JSON.stringify(
+            {
+              success: true,
+              totalCount: data.length,
+              data: data,
+            },
+            null,
+            spaces,
+          ),
+        )
       }
     })
   } else {
@@ -84,12 +96,24 @@ export const readGrammind = async (req, res) => {
           errors: err,
         })
       } else {
-        res.status(200).json({
-          success: success,
-          totalCount: patterns.length,
-          resultCount: data.length,
-          data: data,
-        })
+        let spaces = patterns.spaces || 2
+
+        if (!res.get('Content-Type')) {
+          res.set('Content-Type', 'application/json')
+        }
+
+        res.status(200).send(
+          JSON.stringify(
+            {
+              success: success,
+              totalCount: patterns.length,
+              resultCount: data.length,
+              data: data,
+            },
+            null,
+            spaces,
+          ),
+        )
       }
     })
   }
@@ -105,10 +129,124 @@ export const getBySlugGrammind = async (req, res) => {
         errors: err,
       })
     }
-    res.status(200).json({
-      success: true,
-      resultCount: patterns.length,
-      data: patterns,
-    })
+
+    let spaces = patterns.spaces || 2
+
+    if (!res.get('Content-Type')) {
+      res.set('Content-Type', 'application/json')
+    }
+
+    res.status(200).send(
+      JSON.stringify(
+        {
+          success: true,
+          resultCount: patterns.length,
+          data: patterns,
+        },
+        null,
+        spaces,
+      ),
+    )
   })
+}
+
+export const getByLanguageGrammind = async (req, res) => {
+  const language = req.params.language
+
+  grammindModle.find({ programing_language: language }, (err, patterns) => {
+    if (err) {
+      return res.status(401).json({
+        success: false,
+        errors: err,
+      })
+    }
+
+    let spaces = patterns.spaces || 2
+
+    if (!res.get('Content-Type')) {
+      res.set('Content-Type', 'application/json')
+    }
+
+    res.status(200).send(
+      JSON.stringify(
+        {
+          success: true,
+          resultCount: patterns.length,
+          data: patterns,
+        },
+        null,
+        spaces,
+      ),
+    )
+  })
+}
+
+export const getByLanguageAndTypeGrammind = async (req, res) => {
+  const language = req.params.language
+  const type = req.params.type
+
+  grammindModle.find(
+    { programing_language: language, type: type },
+    (err, patterns) => {
+      if (err) {
+        return res.status(401).json({
+          success: false,
+          errors: err,
+        })
+      }
+
+      let spaces = patterns.spaces || 2
+
+      if (!res.get('Content-Type')) {
+        res.set('Content-Type', 'application/json')
+      }
+
+      res.status(200).send(
+        JSON.stringify(
+          {
+            success: true,
+            resultCount: patterns.length,
+            data: patterns,
+          },
+          null,
+          spaces,
+        ),
+      )
+    },
+  )
+}
+
+export const getByLanguageAndNoGrammind = async (req, res) => {
+  const language = req.params.language
+  const pattern_no = req.params.pattern_no
+
+  grammindModle.find(
+    { programing_language: language, pattern_no: pattern_no },
+    (err, patterns) => {
+      if (err) {
+        return res.status(401).json({
+          success: false,
+          errors: err,
+        })
+      }
+
+      let spaces = patterns.spaces || 2
+
+      if (!res.get('Content-Type')) {
+        res.set('Content-Type', 'application/json')
+      }
+
+      res.status(200).send(
+        JSON.stringify(
+          {
+            success: true,
+            resultCount: patterns.length,
+            data: patterns,
+          },
+          null,
+          spaces,
+        ),
+      )
+    },
+  )
 }
