@@ -1,0 +1,11 @@
+{
+  "pattern": "square",
+  "pattern_no": "pattern_2",
+  "type": "numeric pattern",
+  "programing_language": "java",
+  "code": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner createScanner = new Scanner(System.in);\n        int num;\n        System.out.print(\"Enter the number of rows and columns for the square: \");\n        num = createScanner.nextInt();\n\n        for (int i = 1; i <= num; i++) {\n            for (int j = 1; j <= num - 2; j++) {\n                System.out.print(j + \" \" + i + \" \");\n            }\n            System.out.print(\"\n\");\n        }\n    }\n}",
+  "code_input_filter": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner createScanner = new Scanner(System.in);\n        int num = Integer.MIN_VALUE;\n        boolean checker;\n        String string;\n        System.out.print(\"Enter the number of rows and columns for the square: \");\n\n        checker = createScanner.hasNextInt();\n        string = createScanner.next();\n\n        if (checker) {\n            num = Integer.parseInt(string);\n        }\n\n        while (!checker || num <= 0) {\n            System.out.print(\n                    \"Must the number be positive, re-enter the number of rows and columns for the square: \");\n\n            checker = createScanner.hasNextInt();\n            string = createScanner.next();\n\n            if (checker) {\n                num = Integer.parseInt(string);\n            }\n        }\n\n        for (int i = 1; i <= num; i++) {\n            for (int j = 1; j <= num - 2; j++) {\n                System.out.print(j + \" \" + i + \" \");\n            }\n            System.out.print(\"\n\");\n        }\n    }\n}",
+  "onlinegdb_id": "-6zpXyI3y",
+  "onlinegdb_id_input_filter": "NtbyhLKQm",
+  "example_output": "1 1 2 1 3 1 \n1 2 2 2 3 2 \n1 3 2 3 3 3 \n1 4 2 4 3 4 \n1 5 2 5 3 5"
+}

@@ -1,0 +1,11 @@
+{
+  "pattern": "square",
+  "pattern_no": "pattern_2",
+  "type": "numeric pattern",
+  "programing_language": "cpp",
+  "code": "#include <iostream>\nusing namespace std;\n\nint main(void)\n{\n    int num;\n    cout << \"Enter the number of rows and columns for the square: \";\n    cin >> num;\n\n    for (int i = 1; i <= num; i++)\n    {\n        for (int j = 1; j <= num; j++)\n        {\n            cout << i * j << \" \";\n        }\n        cout << endl;\n    }\n\n    return 0;\n}",
+  "code_input_filter": "#include <iostream>\nusing namespace std;\n\nint main(void)\n{\n    int num;\n    cout << \"Enter the number of rows and columns for the square: \";\n    cin >> num;\n\n    while (num <= 0 || cin.fail())\n    {\n        cout << \"Must the number be positive, re-enter the number of rows and columns for the square: \";\n        cin.clear();\n        cin.ignore(256, '\n');\n        cin >> num;\n    }\n\n    for (int i = 1; i <= num; i++)\n    {\n        for (int j = 1; j <= num; j++)\n        {\n            cout << i * j << \" \";\n        }\n        cout << endl;\n    }\n\n    return 0;\n}",
+  "onlinegdb_id": "flCO9_Tkn",
+  "onlinegdb_id_input_filter": "8qqtLbxBE",
+  "example_output": " 1  2  3  4  5 \n 2  4  6  8 10 \n 3  6  9 12 15 \n 4  8 12 16 20 \n 5 10 15 20 25"
+}

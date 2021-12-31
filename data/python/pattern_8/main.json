@@ -1,0 +1,11 @@
+{
+  "pattern": "square",
+  "pattern_no": "pattern_2",
+  "type": "numeric pattern",
+  "programing_language": "python",
+  "code": "#MAIN PROGRAM STARTS HERE:\nnum = int(input('Enter the number of rows and columns for the square: '))\nk = 2\n\nfor x in range(0, num ):\n    for y in range(0, num):\n        print ('%d ' % (k), end='')\n        k += 2\n    print()",
+  "code_input_filter": "def checkInput(message):\n    while True:\n        try:\n            userInput = int(input(message))\n        except ValueError:\n            message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n            continue\n        else:\n            if userInput <= 0:\n                message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n                continue\n            else:\n                return userInput\n                break\n\n#MAIN PROGRAM STARTS HERE:\nnum = checkInput('Enter the number of rows and columns for the square: ')\nk = 2\n\nfor x in range(0, num ):\n    for y in range(0, num):\n        print ('%d ' % (k), end='')\n        k += 2\n    print()",
+  "onlinegdb_id": "I_AjxCQTR",
+  "onlinegdb_id_input_filter": "s3Xa3LFbE",
+  "example_output": " 2  4  6  8 10 \n12 14 16 18 20 \n22 24 26 28 30 \n32 34 36 38 40 \n42 44 46 48 50"
+}

@@ -3,9 +3,9 @@
   "pattern_no": "pattern_2",
   "type": "numeric pattern",
   "programing_language": "python",
-  "code": "",
-  "code_input_filter": "",
-  "onlinegdb_id": "",
-  "onlinegdb_id_input_filter": "",
-  "example_output": ""
+  "code": "#MAIN PROGRAM STARTS HERE:\nnum = int(input('Enter the number of rows and columns for the square: '))\n\nfor x in range(num, 0, -1):\n    for y in range(num, 0, -1):\n        print ('%d ' % (y), end='')\n    print()",
+  "code_input_filter": "def checkInput(message):\n    while True:\n        try:\n            userInput = int(input(message))\n        except ValueError:\n            message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n            continue\n        else:\n            if userInput <= 0:\n                message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n                continue\n            else:\n                return userInput\n                break\n\n#MAIN PROGRAM STARTS HERE:\nnum = checkInput('Enter the number of rows and columns for the square: ')\n\nfor x in range(num, 0, -1):\n    for y in range(num, 0, -1):\n        print ('%d ' % (y), end='')\n    print()",
+  "onlinegdb_id": "UsdpimF6f",
+  "onlinegdb_id_input_filter": "fnuC5YOrU",
+  "example_output": "5 4 3 2 1 \n5 4 3 2 1 \n5 4 3 2 1 \n5 4 3 2 1 \n5 4 3 2 1"
 }

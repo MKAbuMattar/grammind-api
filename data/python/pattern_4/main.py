@@ -18,5 +18,5 @@ num = checkInput('Enter the number of rows and columns for the square: ')
 
 for x in range(num, 0, -1):
     for y in range(num, 0, -1):
-        print ('%d ' % (x+1), end='')
+        print ('%d ' % (x), end='')
     print()
