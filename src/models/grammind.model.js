@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose'
 
-const grammindSchema = new mongoose.Schema({
+const grammindSchema = new Schema({
   slug: {
     type: String,
     require: true,
@@ -64,4 +64,4 @@ const grammindSchema = new mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('grammind', grammindSchema)
+export default model('grammind', grammindSchema)
