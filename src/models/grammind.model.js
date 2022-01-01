@@ -64,4 +64,6 @@ const grammindSchema = new Schema({
   },
 })
 
-export default model('grammind', grammindSchema)
+export const grammindModel = model('grammind', grammindSchema)
+
+export default grammindModel
