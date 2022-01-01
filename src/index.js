@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 
-import router from './router/index'
-import { PORT, DATABASE_URL } from './env/index'
-import connectDb from './config/index'
+import router from './router/router'
+import { PORT, DATABASE_URL } from './env/environment'
+import connectDb from './config/db.config'
 
 connectDb(DATABASE_URL)
 

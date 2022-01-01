@@ -1,4 +1,4 @@
-import grammindModle from '../models/index'
+import grammindModle from '../models/grammind.model'
 
 export const readGrammind = async (req, res, next) => {
   const numOfQueries = Object.keys(req.query).length
