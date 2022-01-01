@@ -1,0 +1,5 @@
+# befor production
+npx babel src -d build --presets @babel/preset-env
+
+# after production
+npx babel src --out-file build/index.js --minified --presets @babel/preset-env
