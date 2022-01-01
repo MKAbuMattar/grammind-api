@@ -1,4 +1,5 @@
-import express from 'express'
+import { Router } from 'express'
+
 import {
   readGrammind,
   getBySlugGrammind,
@@ -7,7 +8,7 @@ import {
   getByLanguageAndNoGrammind,
 } from '../controllers/grammind.conteraller.v1'
 
-const router = express.Router()
+const router = Router()
 
 router.get('/', (req, res, next) => {
   res.redirect('https://github.com/MKAbuMattar/grammind-api')

@@ -251,3 +251,11 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
     next()
   })
 }
+
+export default {
+  readGrammind,
+  getBySlugGrammind,
+  getByLanguageGrammind,
+  getByLanguageAndTypeGrammind,
+  getByLanguageAndNoGrammind,
+}
