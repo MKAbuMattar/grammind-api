@@ -1,6 +1,6 @@
 {
   "name": "grammind-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Grammind API is devoted entirely to ASCII art pattern programs, and its purpose is to learn how to write ASCII pattern programs in various programming languages such as C, C++, Java, C#, and Python.",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/MKAbuMattar/grammind-api.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "grammind",
+    "grammind api",
+    "pattern programs",
+    "ASCII art",
+    "programming ASCII art"
+  ],
+  "author": "Mohammad Abu Mattar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MKAbuMattar/grammind-api/issues"
