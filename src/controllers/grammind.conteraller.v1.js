@@ -10,7 +10,7 @@ export const readGrammind = async (req, res, next) => {
           errors: err,
         })
       } else {
-        let spaces = data.spaces || 2
+        const spaces = data.spaces || 2
 
         if (!res.get('Content-Type')) {
           res.set('Content-Type', 'application/json')
@@ -21,7 +21,7 @@ export const readGrammind = async (req, res, next) => {
             {
               success: true,
               totalCount: data.length,
-              data: data,
+              data,
             },
             null,
             spaces,
@@ -93,7 +93,7 @@ export const readGrammind = async (req, res, next) => {
           errors: err,
         })
       } else {
-        let spaces = patterns.spaces || 2
+        const spaces = patterns.spaces || 2
 
         if (!res.get('Content-Type')) {
           res.set('Content-Type', 'application/json')
@@ -102,10 +102,10 @@ export const readGrammind = async (req, res, next) => {
         res.status(200).send(
           JSON.stringify(
             {
-              success: success,
+              success,
               totalCount: patterns.length,
               resultCount: data.length,
-              data: data,
+              data,
             },
             null,
             spaces,
@@ -119,9 +119,9 @@ export const readGrammind = async (req, res, next) => {
 }
 
 export const getBySlugGrammind = async (req, res, next) => {
-  const slug = req.params.slug
+  const { slug } = req.params
 
-  grammindModle.find({ slug: slug }, (err, patterns) => {
+  grammindModle.find({ slug }, (err, patterns) => {
     if (err) {
       return res.status(401).json({
         success: false,
@@ -129,7 +129,7 @@ export const getBySlugGrammind = async (req, res, next) => {
       })
     }
 
-    let spaces = patterns.spaces || 2
+    const spaces = patterns.spaces || 2
 
     if (!res.get('Content-Type')) {
       res.set('Content-Type', 'application/json')
@@ -152,7 +152,7 @@ export const getBySlugGrammind = async (req, res, next) => {
 }
 
 export const getByLanguageGrammind = async (req, res, next) => {
-  const language = req.params.language
+  const { language } = req.params
 
   grammindModle.find({ programing_language: language }, (err, patterns) => {
     if (err) {
@@ -162,7 +162,7 @@ export const getByLanguageGrammind = async (req, res, next) => {
       })
     }
 
-    let spaces = patterns.spaces || 2
+    const spaces = patterns.spaces || 2
 
     if (!res.get('Content-Type')) {
       res.set('Content-Type', 'application/json')
@@ -185,10 +185,10 @@ export const getByLanguageGrammind = async (req, res, next) => {
 }
 
 export const getByLanguageAndTypeGrammind = async (req, res, next) => {
-  const language = req.params.language
-  const type = req.params.type
+  const { language } = req.params
+  const { type } = req.params
 
-  grammindModle.find({ programing_language: language, type: type }, (err, patterns) => {
+  grammindModle.find({ programing_language: language, type }, (err, patterns) => {
     if (err) {
       return res.status(401).json({
         success: false,
@@ -196,7 +196,7 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
       })
     }
 
-    let spaces = patterns.spaces || 2
+    const spaces = patterns.spaces || 2
 
     if (!res.get('Content-Type')) {
       res.set('Content-Type', 'application/json')
@@ -219,10 +219,10 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
 }
 
 export const getByLanguageAndNoGrammind = async (req, res, next) => {
-  const language = req.params.language
-  const pattern_no = req.params.pattern_no
+  const { language } = req.params
+  const { pattern_no } = req.params
 
-  grammindModle.find({ programing_language: language, pattern_no: pattern_no }, (err, patterns) => {
+  grammindModle.find({ programing_language: language, pattern_no }, (err, patterns) => {
     if (err) {
       return res.status(401).json({
         success: false,
@@ -230,7 +230,7 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
       })
     }
 
-    let spaces = patterns.spaces || 2
+    const spaces = patterns.spaces || 2
 
     if (!res.get('Content-Type')) {
       res.set('Content-Type', 'application/json')

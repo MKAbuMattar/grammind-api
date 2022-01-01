@@ -10,7 +10,9 @@
     "build": "npm run clean && npx babel src -d build --minified --presets @babel/preset-env",
     "start:build": "node build/bin/www.js",
     "lint": "eslint \"src/**/*.js\"",
-    "format": "prettier --write \"src/**/*.js\""
+    "lint:fix": "eslint \"src/**/*.js\" --fix",
+    "format": "prettier --check \"src/**/*.js\"",
+    "format:fix": "prettier --write \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -51,5 +53,8 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
