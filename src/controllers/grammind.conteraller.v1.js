@@ -1,4 +1,4 @@
-import grammindModle from '../models/grammind.model'
+import grammindModle from '../models'
 
 export const readGrammind = async (req, res, next) => {
   const numOfQueries = Object.keys(req.query).length
@@ -54,10 +54,7 @@ export const readGrammind = async (req, res, next) => {
             break
           case 'pattern_no':
             data.forEach((result) => {
-              if (
-                result.pattern_no.toLowerCase() ===
-                `${pattern_no}`.toLowerCase()
-              )
+              if (result.pattern_no.toLowerCase() === `${pattern_no}`.toLowerCase())
                 resultData.push(result)
             })
             data = resultData
@@ -66,8 +63,7 @@ export const readGrammind = async (req, res, next) => {
             break
           case 'type':
             data.forEach((result) => {
-              if (result.type.toLowerCase() === `${type}`.toLowerCase())
-                resultData.push(result)
+              if (result.type.toLowerCase() === `${type}`.toLowerCase()) resultData.push(result)
             })
             data = resultData
             success = true
@@ -76,8 +72,7 @@ export const readGrammind = async (req, res, next) => {
           case 'programing_language':
             data.forEach((result) => {
               if (
-                result.programing_language.toLowerCase() ===
-                `${programing_language}`.toLowerCase()
+                result.programing_language.toLowerCase() === `${programing_language}`.toLowerCase()
               )
                 resultData.push(result)
             })
@@ -193,72 +188,66 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
   const language = req.params.language
   const type = req.params.type
 
-  grammindModle.find(
-    { programing_language: language, type: type },
-    (err, patterns) => {
-      if (err) {
-        return res.status(401).json({
-          success: false,
-          errors: err,
-        })
-      }
+  grammindModle.find({ programing_language: language, type: type }, (err, patterns) => {
+    if (err) {
+      return res.status(401).json({
+        success: false,
+        errors: err,
+      })
+    }
 
-      let spaces = patterns.spaces || 2
+    let spaces = patterns.spaces || 2
 
-      if (!res.get('Content-Type')) {
-        res.set('Content-Type', 'application/json')
-      }
+    if (!res.get('Content-Type')) {
+      res.set('Content-Type', 'application/json')
+    }
 
-      res.status(200).send(
-        JSON.stringify(
-          {
-            success: true,
-            resultCount: patterns.length,
-            data: patterns,
-          },
-          null,
-          spaces,
-        ),
-      )
+    res.status(200).send(
+      JSON.stringify(
+        {
+          success: true,
+          resultCount: patterns.length,
+          data: patterns,
+        },
+        null,
+        spaces,
+      ),
+    )
 
-      next()
-    },
-  )
+    next()
+  })
 }
 
 export const getByLanguageAndNoGrammind = async (req, res, next) => {
   const language = req.params.language
   const pattern_no = req.params.pattern_no
 
-  grammindModle.find(
-    { programing_language: language, pattern_no: pattern_no },
-    (err, patterns) => {
-      if (err) {
-        return res.status(401).json({
-          success: false,
-          errors: err,
-        })
-      }
+  grammindModle.find({ programing_language: language, pattern_no: pattern_no }, (err, patterns) => {
+    if (err) {
+      return res.status(401).json({
+        success: false,
+        errors: err,
+      })
+    }
 
-      let spaces = patterns.spaces || 2
+    let spaces = patterns.spaces || 2
 
-      if (!res.get('Content-Type')) {
-        res.set('Content-Type', 'application/json')
-      }
+    if (!res.get('Content-Type')) {
+      res.set('Content-Type', 'application/json')
+    }
 
-      res.status(200).send(
-        JSON.stringify(
-          {
-            success: true,
-            resultCount: patterns.length,
-            data: patterns,
-          },
-          null,
-          spaces,
-        ),
-      )
+    res.status(200).send(
+      JSON.stringify(
+        {
+          success: true,
+          resultCount: patterns.length,
+          data: patterns,
+        },
+        null,
+        spaces,
+      ),
+    )
 
-      next()
-    },
-  )
+    next()
+  })
 }
