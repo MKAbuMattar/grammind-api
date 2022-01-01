@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import router from './router'
-import { PORT, DATABASE_URL } from './env'
+import { DATABASE_URL } from './env'
 import connectDb from './config'
 
 connectDb(DATABASE_URL)
@@ -14,4 +14,4 @@ app.use(cors())
 
 app.use(router)
 
-app.listen(PORT, () => {})
+export default app
