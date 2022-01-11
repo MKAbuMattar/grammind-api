@@ -1,0 +1,22 @@
+# Language C
+GET http://localhost:3030/api/v1/language/c
+
+###
+
+# Language C#
+GET http://localhost:3030/api/v1/language/csharp
+
+###
+
+# Language C++
+GET http://localhost:3030/api/v1/language/cpp
+
+###
+
+# Language Java
+GET http://localhost:3030/api/v1/language/java
+
+###
+
+# Language Python
+GET http://localhost:3030/api/v1/language/python

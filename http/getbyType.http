@@ -1,0 +1,9 @@
+# https://grammind.herokuapp.com/api/v1/type/{type}
+
+# type: symbol pattern
+GET https://grammind.herokuapp.com/api/v1/type/symbol pattern
+
+###
+
+# type: numeric pattern
+GET https://grammind.herokuapp.com/api/v1/type/numeric pattern
