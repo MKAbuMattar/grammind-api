@@ -1,0 +1,3 @@
+# GET pattern by slag
+# http://localhost:3030/api/v1/slag
+GET http://localhost:3030/api/v1/pattern_1_c
