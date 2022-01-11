@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import { connect } from 'mongoose'
 
 const connectDb = async (URL) => {
   const connectionParams = {
@@ -7,8 +7,15 @@ const connectDb = async (URL) => {
   }
 
   try {
-    await mongoose.connect(URL, connectionParams)
-  } catch (err) {}
+    const connection = await connect(URL, connectionParams)
+    console.log('======================================')
+    console.info(`Mongo DB is connected to: ${connection.connection.host}`)
+    console.log('======================================')
+  } catch (err) {
+    console.log('======================================')
+    console.error(`An error ocurred\n\r\n\r${err}`)
+    console.log('======================================')
+  }
 }
 
 export default connectDb

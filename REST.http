@@ -1,0 +1,44 @@
+# GET WORK
+
+GET http://localhost:8080/
+###
+
+# GET ALL
+GET http://localhost:8080/api/v1/
+
+###
+
+# GET ALL Pages
+GET http://localhost:8080/api/v1/
+    ?page=2
+
+###
+
+# GET pattern by slag
+#http://localhost:8080/api/v1/slag
+GET http://localhost:8080/api/v1/pattern_1_c
+
+###
+
+# Language C
+GET http://localhost:8080/api/v1/language/c
+
+###
+
+# Language C#
+GET http://localhost:8080/api/v1/language/csharp
+
+###
+
+# Language C++
+GET http://localhost:8080/api/v1/language/cpp
+
+###
+
+# Language Java
+GET http://localhost:8080/api/v1/language/java
+
+###
+
+# Language Python
+GET http://localhost:8080/api/v1/language/python

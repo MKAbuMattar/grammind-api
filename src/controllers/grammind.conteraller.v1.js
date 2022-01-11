@@ -1,128 +1,40 @@
-import grammindModle from '../models'
+import grammindModle from '../models/grammind.model'
 import { getPaginationParams } from '../utils'
 
 export const getAllGrammind = async (req, res, next) => {
   try {
     const { limit, skip, page } = getPaginationParams(req.query)
 
-    const numOfQueries = Object.keys(req.query).filter(
-      (e) => e === 'pattern' || e === 'pattern_no' || e === 'type' || e === 'programing_language',
-    ).length
+    const [results, totalCount] = await Promise.all([
+      grammindModle.find({}).sort({ createdAt: 1 }).limit(limit).skip(skip),
 
-    if (numOfQueries === 0) {
-      const [results, totalCount] = await Promise.all([
-        grammindModle.find({}).sort({ createdAt: 1 }).limit(limit).skip(skip),
+      grammindModle.countDocuments(),
+    ])
 
-        grammindModle.countDocuments(),
-      ])
+    const lastItemIndex = skip + results.length
 
-      const lastItemIndex = skip + results.length
+    const totalPages = Math.ceil(totalCount / limit)
 
-      const totalPages = Math.ceil(totalCount / limit)
+    const spaces = results.spaces || 2
 
-      const spaces = results.spaces || 2
-
-      if (!res.get('Content-Type')) {
-        res.set('Content-Type', 'application/json')
-      }
-
-      res.status(200).send(
-        JSON.stringify(
-          {
-            count: results.length,
-            totalCount,
-            page,
-            totalPages,
-            lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
-            data: results,
-          },
-          null,
-          spaces,
-        ),
-      )
-
-      next()
-    } else {
-      const queryObj = req.query
-
-      const { pattern, pattern_no, type, programing_language } = queryObj
-
-      const [results, totalCount] = await Promise.all([
-        grammindModle.find({}).sort({ createdAt: 1 }).limit(limit).skip(skip),
-
-        grammindModle.countDocuments(),
-      ])
-
-      let data = results
-      let resultData = []
-
-      for (const key in queryObj) {
-        switch (key) {
-          case 'pattern':
-            data.forEach((result) => {
-              if (result.pattern.toLowerCase() === `${pattern}`.toLowerCase())
-                resultData.push(result)
-            })
-            data = resultData
-            resultData = []
-            break
-          case 'pattern_no':
-            data.forEach((result) => {
-              if (result.pattern_no.toLowerCase() === `${pattern_no}`.toLowerCase())
-                resultData.push(result)
-            })
-            data = resultData
-            resultData = []
-            break
-          case 'type':
-            data.forEach((result) => {
-              if (result.type.toLowerCase() === `${type}`.toLowerCase()) resultData.push(result)
-            })
-            data = resultData
-            resultData = []
-            break
-          case 'programing_language':
-            data.forEach((result) => {
-              if (
-                result.programing_language.toLowerCase() === `${programing_language}`.toLowerCase()
-              )
-                resultData.push(result)
-            })
-            data = resultData
-            resultData = []
-            break
-          default:
-            break
-        }
-      }
-
-      const lastItemIndex = skip + data.length
-
-      const totalPages = Math.ceil(data.length / limit)
-
-      const spaces = data.spaces || 2
-
-      if (!res.get('Content-Type')) {
-        res.set('Content-Type', 'application/json')
-      }
-
-      res.status(200).send(
-        JSON.stringify(
-          {
-            count: data.length,
-            totalCount,
-            page,
-            totalPages,
-            lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
-            data: data,
-          },
-          null,
-          spaces,
-        ),
-      )
-
-      next()
+    if (!res.get('Content-Type')) {
+      res.set('Content-Type', 'application/json')
     }
+
+    res.status(200).send(
+      JSON.stringify(
+        {
+          count: results.length,
+          totalCount,
+          page,
+          totalPages,
+          lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
+          data: results,
+        },
+        null,
+        spaces,
+      ),
+    )
   } catch (error) {
     return next(error)
   }
@@ -142,7 +54,7 @@ export const getBySlugGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(totalCount / limit)
+    const totalPages = Math.ceil(results.length / limit)
 
     res.status(200).json({
       count: results.length,
@@ -152,8 +64,6 @@ export const getBySlugGrammind = async (req, res, next) => {
       lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
       data: results,
     })
-
-    next()
   } catch (error) {
     return next(error)
   }
@@ -177,7 +87,7 @@ export const getByLanguageGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(totalCount / limit)
+    const totalPages = Math.ceil(results.length / limit)
 
     res.status(200).json({
       count: results.length,
@@ -187,8 +97,93 @@ export const getByLanguageGrammind = async (req, res, next) => {
       lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
       data: results,
     })
+  } catch (error) {
+    return next(error)
+  }
+}
 
-    next()
+export const getByTypeGrammind = async (req, res, next) => {
+  try {
+    const { type } = req.params
+
+    const { limit, skip, page } = getPaginationParams(req.query)
+
+    const [results, totalCount] = await Promise.all([
+      grammindModle.find({ type }).sort({ createdAt: 1 }).limit(limit).skip(skip),
+
+      grammindModle.countDocuments(),
+    ])
+
+    const lastItemIndex = skip + results.length
+
+    const totalPages = Math.ceil(results.length / limit)
+
+    res.status(200).json({
+      count: results.length,
+      totalCount,
+      page,
+      totalPages,
+      lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
+      data: results,
+    })
+  } catch (error) {
+    return next(error)
+  }
+}
+
+export const getByPatternGrammind = async (req, res, next) => {
+  try {
+    const { pattern } = req.params
+
+    const { limit, skip, page } = getPaginationParams(req.query)
+
+    const [results, totalCount] = await Promise.all([
+      grammindModle.find({ pattern }).sort({ createdAt: 1 }).limit(limit).skip(skip),
+
+      grammindModle.countDocuments(),
+    ])
+
+    const lastItemIndex = skip + results.length
+
+    const totalPages = Math.ceil(results.length / limit)
+
+    res.status(200).json({
+      count: results.length,
+      totalCount,
+      page,
+      totalPages,
+      lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
+      data: results,
+    })
+  } catch (error) {
+    return next(error)
+  }
+}
+
+export const getByNoGrammind = async (req, res, next) => {
+  try {
+    const { pattern_no } = req.params
+
+    const { limit, skip, page } = getPaginationParams(req.query)
+
+    const [results, totalCount] = await Promise.all([
+      grammindModle.find({ pattern_no }).sort({ createdAt: 1 }).limit(limit).skip(skip),
+
+      grammindModle.countDocuments(),
+    ])
+
+    const lastItemIndex = skip + results.length
+
+    const totalPages = Math.ceil(results.length / limit)
+
+    res.status(200).json({
+      count: results.length,
+      totalCount,
+      page,
+      totalPages,
+      lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
+      data: results,
+    })
   } catch (error) {
     return next(error)
   }
@@ -213,7 +208,7 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(totalCount / limit)
+    const totalPages = Math.ceil(results.length / limit)
 
     res.status(200).json({
       count: results.length,
@@ -223,8 +218,40 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
       lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
       data: results,
     })
+  } catch (error) {
+    return next(error)
+  }
+}
 
-    next()
+export const getByLanguageAndPatternGrammind = async (req, res, next) => {
+  try {
+    const { language } = req.params
+    const { pattern } = req.params
+
+    const { limit, skip, page } = getPaginationParams(req.query)
+
+    const [results, totalCount] = await Promise.all([
+      grammindModle
+        .find({ programing_language: language, pattern })
+        .sort({ createdAt: 1 })
+        .limit(limit)
+        .skip(skip),
+
+      grammindModle.countDocuments(),
+    ])
+
+    const lastItemIndex = skip + results.length
+
+    const totalPages = Math.ceil(results.length / limit)
+
+    res.status(200).json({
+      count: results.length,
+      totalCount,
+      page,
+      totalPages,
+      lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
+      data: results,
+    })
   } catch (error) {
     return next(error)
   }
@@ -249,7 +276,7 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(totalCount / limit)
+    const totalPages = Math.ceil(results.length / limit)
 
     res.status(200).json({
       count: results.length,
@@ -259,8 +286,6 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
       lastItemIndex: lastItemIndex >= totalCount ? null : lastItemIndex,
       data: results,
     })
-
-    next()
   } catch (error) {
     return next(error)
   }
@@ -270,6 +295,10 @@ export default {
   getAllGrammind,
   getBySlugGrammind,
   getByLanguageGrammind,
+  getByTypeGrammind,
+  getByPatternGrammind,
+  getByNoGrammind,
   getByLanguageAndTypeGrammind,
+  getByLanguageAndPatternGrammind,
   getByLanguageAndNoGrammind,
 }
