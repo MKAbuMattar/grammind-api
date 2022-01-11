@@ -1,4 +1,4 @@
-import grammindModle from '../models/grammind.model'
+import grammindModle from '../models'
 import { getPaginationParams } from '../utils'
 
 export const getAllGrammind = async (req, res, next) => {
