@@ -19,9 +19,7 @@ import { API_V } from '../env'
 const router = Router()
 
 router.get('/', (req, res, next) => {
-  res.status(200).json({
-    API: 'Work',
-  })
+  res.redirect('https://github.com/MKAbuMattar/grammind-api')
 })
 
 // Version 1
