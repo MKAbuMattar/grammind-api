@@ -6,6 +6,10 @@ import http from 'http'
 import app from '..'
 
 import { PORT } from '../env'
+import { onYourNetwork } from '../config'
+
+import { API_V } from '../env'
+import { log } from '../utils'
 
 /**
  * Normalize a port into a number, string, or false.
@@ -59,5 +63,19 @@ const onError = (error) => {
   }
 }
 
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+const onListening = () => {
+  for (const url of API_V) {
+    log.info(`
+Server running at
+    Local:            http://localhost:${PORT}${url}
+    On Your Network:  http://${Object.values(onYourNetwork)[0][0]}:${PORT}${url}
+`)
+  }
+}
+
 server.listen(PORT)
 server.on('error', onError)
+server.on('listening', onListening)
