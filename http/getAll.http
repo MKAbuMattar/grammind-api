@@ -1,13 +1,13 @@
 # GET WORK
 
-GET http://localhost:3030/
+GET http://localhost:8080/
 ###
 
 # GET ALL
-GET http://localhost:3030/api/v1/
+GET http://localhost:8080/api/v1/
 
 ###
 
 # GET all patterns by pages
-GET http://localhost:3030/api/v1/
+GET http://localhost:8080/api/v1/
     ?page=2
