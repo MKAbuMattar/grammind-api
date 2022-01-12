@@ -1,4 +1,5 @@
 import express from 'express'
+import helmet from 'helmet'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
@@ -9,6 +10,10 @@ import connectDb from './config'
 connectDb(DATABASE_URL)
 
 const app = express()
+
+//helmet
+app.use(helmet())
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
