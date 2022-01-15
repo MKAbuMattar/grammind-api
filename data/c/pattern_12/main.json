@@ -1,11 +1,9 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_12",
-  "type": "numeric pattern",
+  "pattern_no": 12,
+  "type": "numeric",
   "programing_language": "c",
   "code": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    int x;\n    printf(\"Enter the number of rows and columns for the square: \");\n    scanf(\"%d\", &num);\n\n    for (int i = 1; i <= num; i++)\n    {\n        x = i;\n        for (int j = 1; j <= num; j++)\n        {\n            printf(\"%d \", x);\n            x += num;\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
-  "code_input_filter": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    int x;\n    printf(\"Enter the number of rows and columns for the square: \");\n\n    while (!(scanf(\"%d\", &num) == 1) || num <= 0)\n    {\n        num = getchar();\n        printf(\"Must the number be positive, re-enter the number of rows and columns for the square: \");\n    }\n\n    for (int i = 1; i <= num; i++)\n    {\n        x = i;\n        for (int j = 1; j <= num; j++)\n        {\n            printf(\"%d \", x);\n            x += num;\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
-  "onlinegdb_id": "mmD9Mx3r0",
-  "onlinegdb_id_input_filter": "jXGG7ZvkK",
+  "live_demo": "mmD9Mx3r0",
   "example_output": " 1  6 11 16 21 \n 2  7 12 17 22 \n 3  8 13 18 23 \n 4  9 14 19 24 \n 5 10 15 20 25"
 }

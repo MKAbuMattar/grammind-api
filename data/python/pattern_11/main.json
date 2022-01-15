@@ -1,11 +1,9 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_11",
-  "type": "numeric pattern",
+  "pattern_no": 11,
+  "type": "numeric",
   "programing_language": "python",
   "code": "#MAIN PROGRAM STARTS HERE:\nnum = int(input('Enter the number of rows and columns for the square: '))\n\nfor x in range(1, num + 1):\n    for y in range(1, num - 2 + 1):\n        print ('{} {} '.format(y, x), end='')\n    print()",
-  "code_input_filter": "def checkInput(message):\n    while True:\n        try:\n            userInput = int(input(message))\n        except ValueError:\n            message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n            continue\n        else:\n            if userInput <= 0:\n                message = 'Must the number be positive, re-enter the number of rows and columns for the square: '\n                continue\n            else:\n                return userInput\n                break\n\n#MAIN PROGRAM STARTS HERE:\nnum = checkInput('Enter the number of rows and columns for the square: ')\n\nfor x in range(1, num + 1):\n    for y in range(1, num - 2 + 1):\n        print ('{} {} '.format(y, x), end='')\n    print()",
-  "onlinegdb_id": "0T5i0fByK",
-  "onlinegdb_id_input_filter": "1MUjKjMUI",
+  "live_demo": "0T5i0fByK",
   "example_output": "1 1 2 1 3 1 \n1 2 2 2 3 2 \n1 3 2 3 3 3 \n1 4 2 4 3 4 \n1 5 2 5 3 5"
 }
