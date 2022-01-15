@@ -1,11 +1,9 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_8",
-  "type": "numeric pattern",
+  "pattern_no": 8,
+  "type": "numeric",
   "programing_language": "csharp",
   "code": "using System;\nclass Grammind\n{\n    static void Main()\n    {\n        int num;\n        int k = 2;\n        Console.Write(\"Enter the number of rows and columns for the square: \");\n        num = Int32.Parse(Console.ReadLine());\n\n        for (int i = 1; i <= num; i++)\n        {\n            for (int j = 1; j <= num; j++)\n            {\n                Console.Write(k + \" \");\n                k += 2;\n            }\n            Console.Write(\"\n\");\n        }\n    }\n}",
-  "code_input_filter": "using System;\nclass Grammind\n{\n    static void Main()\n    {\n        int num;\n        int k = 2;\n        string input;\n        Console.Write(\"Enter the number of rows and columns for the square: \");\n        input = Console.ReadLine();\n\n        while (!int.TryParse(input, out num) || num <= 0)\n        {\n            Console.Write(\"Must the number be positive, re-enter the number of rows and columns for the square: \");\n            input = Console.ReadLine();\n        }\n\n        for (int i = 1; i <= num; i++)\n        {\n            for (int j = 1; j <= num; j++)\n            {\n                Console.Write(k + \" \");\n                k += 2;\n            }\n            Console.Write(\"\n\");\n        }\n    }\n}",
-  "onlinegdb_id": "-RYvFfOFg",
-  "onlinegdb_id_input_filter": "AV-6UYqUn",
+  "live_demo": "-RYvFfOFg",
   "example_output": " 2  4  6  8 10 \n12 14 16 18 20 \n22 24 26 28 30 \n32 34 36 38 40 \n42 44 46 48 50"
 }
