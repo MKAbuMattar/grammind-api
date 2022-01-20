@@ -54,7 +54,7 @@ export const getBySlugGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -87,7 +87,7 @@ export const getByLanguageGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -116,7 +116,7 @@ export const getByTypeGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -145,7 +145,7 @@ export const getByPatternGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -174,7 +174,7 @@ export const getByNoGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -208,7 +208,7 @@ export const getByLanguageAndTypeGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -242,7 +242,7 @@ export const getByLanguageAndPatternGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,
@@ -276,7 +276,7 @@ export const getByLanguageAndNoGrammind = async (req, res, next) => {
 
     const lastItemIndex = skip + results.length
 
-    const totalPages = Math.ceil(results.length / limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     res.status(200).json({
       count: results.length,

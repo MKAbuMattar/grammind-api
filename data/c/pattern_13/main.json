@@ -1,9 +1,9 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_",
-  "type": "",
+  "pattern_no": 13,
+  "type": "numeric",
   "programing_language": "c",
-  "code": "",
-  "live_demo": "",
-  "example_output": ""
+  "code": "#include <stdio.h>\n\nint main(void)\n{\n    int num;\n    int x;\n    int y;\n    printf(\"Enter the number of rows and columns for the square: \");\n    scanf(\"%d\", &num);\n\n    for (int i = 1; i <= num; i++)\n    {\n        x = i;\n        y = num - i + 1;\n        for (int j = 1; j <= num; j++)\n        {\n            if (j % 2 == 1)\n            {\n                printf(\"%d \", x);\n            }\n            else\n            {\n                printf(\"%d \", y);\n            }\n\n            x = x + num;\n            y = y + num;\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
+  "live_demo": "osbSZ2cZE",
+  "example_output": "01 10 11 20 21 \n02 09 12 19 22 \n03 08 13 18 23 \n04 07 14 17 24 \n05 06 15 16 25"
 }

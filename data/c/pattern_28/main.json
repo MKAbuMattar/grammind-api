@@ -1,9 +1,9 @@
 {
   "pattern": "square",
-  "pattern_no": "pattern_",
-  "type": "",
+  "pattern_no": 28,
+  "type": "alphabet",
   "programing_language": "c",
-  "code": "",
-  "live_demo": "",
-  "example_output": ""
+  "code": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void)\n{\n    char ch;\n    printf(\"Enter the character of rows and columns for the square: \");\n    scanf(\"%c\", &ch);\n\n    for (char i = toupper(ch); i >= 'A'; i--)\n    {\n        for (char j = toupper(ch); j >= 'A'; j--)\n        {\n            printf(\"%c \", i);\n        }\n        printf(\"\n\");\n    }\n\n    return 0;\n}",
+  "live_demo": "Sdp9Si5jX",
+  "example_output": "E E E E E \nD D D D D \nC C C C C \nB B B B B \nA A A A A"
 }
